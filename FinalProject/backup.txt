@@ -3,13 +3,9 @@ alan_turing
 alanturing
 Alan Turing
 London
-6
-Bill Gates
-Bjarne Stroustrup
-Elon Musk
+2
 James Gosling
-Ken Thompson
-Mark Zuckerberg
+Bjarne Stroustrup
 3
 Maths
 Hardware
@@ -35,8 +31,8 @@ Bjarne Stroustrup
 Aarhus
 4
 Alan Turing
-Brian Kernighan
 James Gosling
+Brian Kernighan
 Linus Trovalds
 4
 C
@@ -99,10 +95,9 @@ bill_gates
 billgates
 Bill Gates
 Seattle
-4
-Alan Turing
-Elon Musk
+3
 Larry Page
+Elon Musk
 Mark Zuckerberg
 4
 AI
@@ -115,10 +110,9 @@ elon_musk
 elonmusk
 Elon Musk
 Pretoria
-4
-Alan Turing
-Bill Gates
+3
 Larry Page
+Bill Gates
 Mark Zuckerberg
 3
 AI
@@ -130,11 +124,10 @@ mark_zuckerberg
 markzuckerberg
 Mark Zuckerberg
 New York
-4
-Alan Turing
+3
+Mark Zuckerberg
 Bill Gates
 Elon Musk
-Mark Zuckerberg
 3
 AI
 PHP
@@ -145,8 +138,7 @@ ken_thompson
 kenthompson
 Ken Thompson
 New Orleans
-2
-Alan Turing
+1
 Linus Trovalds
 2
 Linux
@@ -158,9 +150,9 @@ linustrovalds
 Linus Trovalds
 Helsinki
 4
+Brian Kernighan
 Bjarne Stroustrup
 Brendan Eich
-Brian Kernighan
 Ken Thompson
 4
 Linux
@@ -174,8 +166,8 @@ adalovelace
 Ada Lovelace
 London
 2
-Edith Clarke
 Grace Hopper
+Edith Clarke
 2
 Maths
 Assembly

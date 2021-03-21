@@ -1,6 +1,5 @@
-
-
 import java.util.NoSuchElementException;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class BST<T> {
@@ -327,6 +326,22 @@ public class BST<T> {
 			}
 		}
 		return node;
+	}
+	
+	public ArrayList<T> dataInOrder() {
+		ArrayList<T> userList = new ArrayList<>();
+		dataInOrder(root, userList);
+		return userList;
+	}
+	
+	private void dataInOrder(Node node, ArrayList<T> userList) {
+		if(node == null) {
+			return;
+		}
+		dataInOrder(node.left, userList);
+		userList.add(node.data);
+		dataInOrder(node.right, userList);
+		
 	}
 
 	/*** ADDITONAL OPERATIONS ***/

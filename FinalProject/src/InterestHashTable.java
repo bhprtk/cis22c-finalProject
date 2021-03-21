@@ -1,10 +1,10 @@
 
 import java.util.ArrayList;
 
-public class HashTable<T> {
+public class InterestHashTable {
 
 	private int numElements;
-	private ArrayList<List<T>> Table;
+	private ArrayList<List<Interest>> Table;
 
 	/**
 	 * Constructor for the hash table. Initializes the Table to be sized according
@@ -13,8 +13,8 @@ public class HashTable<T> {
 	 * 
 	 * @param size the table size
 	 */
-	public HashTable(int size) {
-		Table = new ArrayList<List<T>>();
+	public InterestHashTable(int size) {
+		Table = new ArrayList<List<Interest>>();
 		for (int i = 0; i < size; i++) {
 			Table.add(new List<>());
 		}
@@ -30,8 +30,12 @@ public class HashTable<T> {
 	 * @param t the Object
 	 * @return the index in the Table
 	 */
-	private int hash(T t) {
-		int code = t.hashCode();
+	private int hash(String interest) {
+		String key = interest;
+		int code = 0;
+		for (int i = 0; i < key.length(); i++) {
+			code += (int) key.charAt(i);
+		}		
 		return (code % Table.size());
 	}
 
@@ -68,14 +72,14 @@ public class HashTable<T> {
 	 * @precondition t != null
 	 * @throws NullPointerException if the specified key is null
 	 */
-	public T get(T t) throws NullPointerException {
-		if (t == null) {
+	public Interest get(String interest) throws NullPointerException {
+		if (interest == null) {
 			throw new NullPointerException("get(): " + "Cannot get a null object!");
 		} else {
-			int bucket = hash(t);
+			int bucket = hash(interest);
 			Table.get(bucket).placeIterator();
 			for (int i = 0; i < Table.get(bucket).getLength(); i++) {
-				if (Table.get(bucket).getIterator().equals(t)) {
+				if (Table.get(bucket).getIterator().equals(new Interest(interest))) {
 					return Table.get(bucket).getIterator();
 				}
 				Table.get(bucket).advanceIterator();
@@ -92,14 +96,14 @@ public class HashTable<T> {
 	 * @precondition t != null
 	 * @throws NullPointerException if the specified key is null
 	 */
-	public boolean contains(T t) throws NullPointerException {
-		if (t == null) {
+	public boolean contains(String interest) throws NullPointerException {
+		if (interest == null) {
 			throw new NullPointerException("contains(): " + "Cannot check for a null object!");
 		} else {
-			int bucket = hash(t);
+			int bucket = hash(interest);
 			Table.get(bucket).placeIterator();
 			for (int i = 0; i < Table.get(bucket).getLength(); i++) {
-				if (Table.get(bucket).getIterator().equals(t)) {
+				if (Table.get(bucket).getIterator().equals(new Interest(interest))) {
 					return true;
 				}
 				Table.get(bucket).advanceIterator();
@@ -118,13 +122,27 @@ public class HashTable<T> {
 	 * @precondition t != null
 	 * @throws NullPointerException for a null key
 	 */
-	public void put(T t) throws NullPointerException {
-		if (t == null) {
+	public Interest put(String interest) throws NullPointerException {
+		if (interest == null) {
 			throw new NullPointerException("put(): " + "Cannot add a null object!");
 		} else {
-			int bucket = hash(t);
-			Table.get(bucket).addLast(t);
-			numElements++;
+			int bucket = hash(interest);
+			Interest interestObj;
+			if(Table.get(bucket).isEmpty()) {
+				interestObj = new Interest(interest, numElements);
+				Table.get(bucket).addLast(interestObj);
+				numElements++;
+				return interestObj;
+			} else {
+				Table.get(bucket).placeIterator();
+				for (int i = 0; i < Table.get(bucket).getLength(); i++) {
+					if (Table.get(bucket).getIterator().equals(new Interest(interest))) {
+						return Table.get(bucket).getIterator();
+					}
+					Table.get(bucket).advanceIterator();
+				}
+				return null;
+			}
 		}
 	}
 
@@ -136,14 +154,14 @@ public class HashTable<T> {
 	 * @param t the key to remove
 	 * @throws NullPointerException if the key is null
 	 */
-	public void remove(T t) throws NullPointerException {
-		if (t == null) {
+	public void remove(Interest interest) throws NullPointerException {
+		if (interest == null) {
 			throw new NullPointerException("remove(): " + "Cannot remove a null object!");
 		} else {
-			int bucket = hash(t);
+			int bucket = hash(interest.getInterest());
 			Table.get(bucket).placeIterator();
 			while (!Table.get(bucket).offEnd()) {
-				if (Table.get(bucket).getIterator().equals(t)) {
+				if (Table.get(bucket).getIterator().equals(interest)) {
 					Table.get(bucket).removeIterator();
 					numElements--;
 					return;
@@ -159,7 +177,7 @@ public class HashTable<T> {
 	public void clear() {
 		int size = Table.size();
 		Table.clear();
-		Table = new ArrayList<List<T>>();
+		Table = new ArrayList<List<Interest>>();
 		for (int i = 0; i < size; i++) {
 			Table.add(new List<>());
 		}

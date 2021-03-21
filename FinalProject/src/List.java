@@ -405,10 +405,11 @@ public class List<T> {
 		if (!isEmpty()) {
 			Node temp = first;
 			while (temp != null) {
-				result += temp.data + "\n";
+				result += temp.data;
+//				result += temp.data + "\n";
 				temp = temp.next;
 			}
-			result += "\n";
+//			result += "\n";
 		}
 		return result;
 	}
@@ -422,7 +423,8 @@ public class List<T> {
 		int count = 1;
 		Node temp = first;
 		while (temp != null) {
-			System.out.println(count + ". " + temp.data + "\n");
+			System.out.println(count + ".");
+			System.out.println(temp.data);
 			count++;
 			temp = temp.next;
 		}

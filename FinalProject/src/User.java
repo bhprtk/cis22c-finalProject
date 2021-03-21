@@ -1,20 +1,31 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class User {
-	private String firstName;
-    private String lastName;
+	private String fullName;
     private String userName;
     private String password;
     private String city;
-    private int userid;
+    private int userId;
     private BST<User> friends;
     private List<Interest> interests; //recommended to create an Interest class
     
     public User() {
-    	this.firstName = "";
-    	this.lastName = "";
+    	this.fullName = "";
     	this.userName = "";
     	this.password = "";
     	this.city = "";
+    	this.friends = new BST<>();
+    }
+    
+    public User(int userId, String userName, String password, String fullName, String city, List<Interest> interestList) {
+    	this.fullName = fullName;
+    	this.userName = userName;
+    	this.password = password;
+    	this.city = city;
+    	this.userId = userId;
+    	this.friends = new BST<>();
+    	this.interests = new List<Interest>(interestList);
     }
     
     public User(String userName, String password) {
@@ -22,14 +33,21 @@ public class User {
     	this.password = password;
     }
     
-    public User(String userName, String password, String firstName, String lastName, String city) {
-    	this.firstName = firstName;
-    	this.lastName = lastName;
-    	this.userName = userName;
-    	this.password = password;
-    	this.city = city;
+    public User(String fullName) {
+    	this.fullName = fullName;
+//    	this.friends = new BST<>();
     }
     
+    public User(String userName, String password, String fullName) {
+    	this.userName = userName;
+    	this.password = password;
+    	this.fullName = fullName;
+    }
+    
+    public void setUserId(int userId) {
+    	this.userId = userId;
+    }
+ 
     public void setUserName(String userName) {
     	this.userName = userName;
     }
@@ -38,13 +56,10 @@ public class User {
     	this.password = userName;
     }
     
-    public void setFirstName(String firstName) {
-    	this.firstName = firstName;
+    public void setFullName(String fullName) {
+    	this.fullName = fullName;
     }
     
-    public void setLastName(String lastName) {
-    	this.lastName = lastName;
-    }
     
     public void setCity(String city) {
     	this.city = city;
@@ -58,22 +73,68 @@ public class User {
     	return password;
     }
     
-    public String getFirstName() {
-    	return firstName;
+    public String getFullName() {
+    	return fullName;
     }
     
-    public String getLastName() {
-    	return lastName;
+    public int getUserId() {
+    	return userId;
+    }
+    
+    
+    public ArrayList<User> getFriends() {
+    	return friends.dataInOrder();
+    }
+    
+    public List<Interest> getInterestList() {
+    	return interests;
+    }
+    
+    public void setInterestList(List<Interest> interests) {
+    	this.interests = new List<Interest>(interests);
+    }
+    
+    public boolean isFriendsWith(User user) {
+    	if(friends.search(user, new NameComparator()) != null) {
+    		return true;
+    	}
+    	return false;
     }
     
     public String getCity() {
     	return city;
     }
     
+    public void printFriends() {
+    	friends.inOrderPrint();
+    }
+    
+    public User getFriend(User friend) {
+    	return friends.search(friend, new NameComparator());
+    }
+    
+    public void addFriend(User friend) {
+    	friends.insert(friend, new NameComparator());
+    }
+    
+    public void removeFriend(User friend) {
+    	friends.remove(friend, new NameComparator());
+    }
+    
+    public void printProfile() {
+    	System.out.println("\n--------------------------------------");
+    	System.out.println("\nName: " + fullName);
+    	System.out.println("City: " + city);
+    	System.out.println("\nFriends: ");
+    	friends.inOrderPrint();
+    	System.out.println("\nInterests: ");
+    	System.out.println(interests);
+    	System.out.println("\n--------------------------------------");
+    }
     
     @Override
 	public int hashCode() {
-		String key = firstName + lastName;
+		String key = fullName;
 		int sum = 0;
 		for (int i = 0; i < key.length(); i++) {
 			sum += (int) key.charAt(i);
@@ -90,7 +151,7 @@ public class User {
 			return false;
 		} else {
 			User c = (User) o;
-			if (this.firstName.equals(c.firstName) && this.lastName.equals(c.lastName)) {
+			if (this.fullName.equals(c.fullName)) {
 				return true;
 			}
 		}
@@ -99,12 +160,26 @@ public class User {
 	
 	@Override
 	public String toString() {
-		String result = "";
-		result += "Name: " + firstName + " " + lastName + "\n";
-		result += "username: " + userName + "\n";
-		result += "City: " + city + "\n";
-
+		String result = "\n";
+		result += fullName + "\n";
+		result += city + "\n";
 		return result;
 	}
 	
 }
+
+
+class NameComparator implements Comparator<User> {
+	/**
+	 * Compares the two mutual fund accounts by name of the fund uses the String
+	 * compareTo method to make the comparison
+	 * 
+	 * @param account1 the first MutualFundAccount
+	 * @param account2 the second MutualFundAccount
+	 */
+	@Override
+	public int compare(User account1, User account2) {
+		return account1.getFullName().compareTo(account2.getFullName());
+	}
+} // end class NameComparator
+
