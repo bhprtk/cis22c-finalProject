@@ -136,11 +136,13 @@ public class Graph {
 					adj.get(u).addLast(v);
 				} else {
 					adj.get(u).placeIterator();
-					if (v > adj.get(u).getIterator()) {
-						adj.get(u).advanceIterator();
-					} else {
-						adj.get(u).reverseIterator();
-						adj.get(u).addIterator(v);
+					while(!adj.get(u).offEnd()) {
+						if (v < adj.get(u).getIterator()) {
+							adj.get(u).reverseIterator();
+							adj.get(u).addIterator(v);
+							return;
+						} 
+						adj.get(u).advanceIterator();						
 					}
 				}
 			}
@@ -155,45 +157,45 @@ public class Graph {
 	 * 
 	 */
 	public void addUndirectedEdge(Integer u, Integer v) throws IndexOutOfBoundsException {
-		if (u < 0 || v > vertices) {
-			throw new IndexOutOfBoundsException("addUndirectedEdge(): Index out of bounds!");
-		} else {
-			if (adj.get(u).isEmpty()) {
-				adj.get(u).addLast(v);
-			} else {
-				if (v < adj.get(u).getFirst()) {
-					adj.get(u).addFirst(v);
-				} else if (v > adj.get(u).getLast()) {
-					adj.get(u).addLast(v);
-				} else {
-					adj.get(u).placeIterator();
-					if (v > adj.get(u).getIterator()) {
-						adj.get(u).advanceIterator();
-					} else {
-						adj.get(u).reverseIterator();
-						adj.get(u).addIterator(v);
-					}
-				}
-			}
-			if (adj.get(v).isEmpty()) {
-				adj.get(v).addLast(u);
-			} else {
-				if (u < adj.get(v).getFirst()) {
-					adj.get(v).addFirst(u);
-				} else if (u > adj.get(v).getLast()) {
-					adj.get(v).addLast(u);
-				} else {
-					adj.get(v).placeIterator();
-					if (u > adj.get(v).getIterator()) {
-						adj.get(v).advanceIterator();
-					} else {
-						adj.get(v).reverseIterator();
-						adj.get(v).addIterator(u);
-					}
-				}
-			}
-			edges++;
-		}
+//		if (u < 0 || v > vertices) {
+//			throw new IndexOutOfBoundsException("addUndirectedEdge(): Index out of bounds!");
+//		} else {
+//			if (adj.get(u).isEmpty()) {
+//				adj.get(u).addLast(v);
+//			} else {
+//				if (v < adj.get(u).getFirst()) {
+//					adj.get(u).addFirst(v);
+//				} else if (v > adj.get(u).getLast()) {
+//					adj.get(u).addLast(v);
+//				} else {
+//					adj.get(u).placeIterator();
+//					if (v > adj.get(u).getIterator()) {
+//						adj.get(u).advanceIterator();
+//					} else {
+//						adj.get(u).reverseIterator();
+//						adj.get(u).addIterator(v);
+//					}
+//				}
+//			}
+//			if (adj.get(v).isEmpty()) {
+//				adj.get(v).addLast(u);
+//			} else {
+//				if (u < adj.get(v).getFirst()) {
+//					adj.get(v).addFirst(u);
+//				} else if (u > adj.get(v).getLast()) {
+//					adj.get(v).addLast(u);
+//				} else {
+//					adj.get(v).placeIterator();
+//					if (u > adj.get(v).getIterator()) {
+//						adj.get(v).advanceIterator();
+//					} else {
+//						adj.get(v).reverseIterator();
+//						adj.get(v).addIterator(u);
+//					}
+//				}
+//			}
+//			edges++;
+//		}
 	}
 
 	
