@@ -1,4 +1,14 @@
 
+/**
+ * UserHashTable.java
+ * @author Pratik Bhandari
+ * @author Naqib Khan
+ * @author Young Jin Kim
+ * @author Jafer Zaidi
+ * @author Hanxiao Wang
+ * @author Ogbe Airiodion
+ * CIS 22C, Final Project
+ */
 import java.util.ArrayList;
 
 public class UserHashTable {
@@ -34,7 +44,7 @@ public class UserHashTable {
 		int code = 0;
 		for (int i = 0; i < key.length(); i++) {
 			code += (int) key.charAt(i);
-		}		
+		}
 		return (code % Table.size());
 	}
 
@@ -87,13 +97,12 @@ public class UserHashTable {
 		return null;
 	}
 
-	
 	public boolean hasMultiple(String fullName) throws NullPointerException {
 		if (fullName == null) {
 			throw new NullPointerException("hasMultiple(): " + "Cannot find multiple for a null object!");
 		} else {
 			int bucket = hash(fullName);
-			if(Table.get(bucket).getLength() > 1) {
+			if (Table.get(bucket).getLength() > 1) {
 				return true;
 			}
 //			Table.get(bucket).placeIterator();
@@ -107,7 +116,7 @@ public class UserHashTable {
 		}
 		return false;
 	}
-	
+
 	public List<User> getMultiple(String fullName) throws NullPointerException {
 		if (fullName == null) {
 			throw new NullPointerException("hasMultiple(): " + "Cannot find multiple for a null object!");
@@ -123,7 +132,7 @@ public class UserHashTable {
 		}
 		return new List<User>();
 	}
-	
+
 	/**
 	 * Determines whether a specified key is in the Table
 	 * 
@@ -219,7 +228,6 @@ public class UserHashTable {
 		System.out.println("Printing bucket #" + bucket);
 		System.out.println(Table.get(bucket));
 	}
-	
 
 	/**
 	 * Prints the first key at each bucket along with a count of the total keys with

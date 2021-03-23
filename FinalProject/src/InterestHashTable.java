@@ -1,4 +1,15 @@
 
+/**
+ * InterestHashTable.java
+ * @author Pratik Bhandari
+ * @author Naqib Khan
+ * @author Young Jin Kim
+ * @author Jafer Zaidi
+ * @author Hanxiao Wang
+ * @author Ogbe Airiodion
+ * CIS 22C, Final Project
+ */
+
 import java.util.ArrayList;
 
 public class InterestHashTable {
@@ -35,7 +46,7 @@ public class InterestHashTable {
 		int code = 0;
 		for (int i = 0; i < key.length(); i++) {
 			code += (int) key.charAt(i);
-		}		
+		}
 		return (code % Table.size());
 	}
 
@@ -128,7 +139,7 @@ public class InterestHashTable {
 		} else {
 			int bucket = hash(interest);
 			Interest interestObj;
-			if(Table.get(bucket).isEmpty()) {
+			if (Table.get(bucket).isEmpty()) {
 				interestObj = new Interest(interest, numElements);
 				Table.get(bucket).addLast(interestObj);
 				numElements++;

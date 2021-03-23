@@ -1,7 +1,12 @@
 
 /**
  * Graph.java
- * @author
+ * @author Pratik Bhandari
+ * @author Naqib Khan
+ * @author Young Jin Kim
+ * @author Jafer Zaidi
+ * @author Hanxiao Wang
+ * @author Ogbe Airiodion
  * CIS 22C, Final Project
  */
 
@@ -115,6 +120,25 @@ public class Graph {
 		}
 	}
 
+	/**
+	 * Returns a sorted List of vertices with the highest distance at the front
+	 * 
+	 * @return A List of integers of vertices
+	 */
+	public List<Integer> getRecommendations() {
+		List<Integer> recommendations = new List<>();
+		int max = Collections.max(distance);
+
+		for (int i = 2; i <= max; i++) {
+			for (int j = 0; j < distance.size(); j++) {
+				if (distance.get(j) == i) {
+					recommendations.addFirst(j);
+				}
+			}
+		}
+		return recommendations;
+	}
+
 	/*** Mutators ***/
 
 	/**
@@ -136,13 +160,13 @@ public class Graph {
 					adj.get(u).addLast(v);
 				} else {
 					adj.get(u).placeIterator();
-					while(!adj.get(u).offEnd()) {
+					while (!adj.get(u).offEnd()) {
 						if (v < adj.get(u).getIterator()) {
 							adj.get(u).reverseIterator();
 							adj.get(u).addIterator(v);
 							return;
-						} 
-						adj.get(u).advanceIterator();						
+						}
+						adj.get(u).advanceIterator();
 					}
 				}
 			}
@@ -157,58 +181,26 @@ public class Graph {
 	 * 
 	 */
 	public void addUndirectedEdge(Integer u, Integer v) throws IndexOutOfBoundsException {
-//		if (u < 0 || v > vertices) {
-//			throw new IndexOutOfBoundsException("addUndirectedEdge(): Index out of bounds!");
-//		} else {
-//			if (adj.get(u).isEmpty()) {
-//				adj.get(u).addLast(v);
-//			} else {
-//				if (v < adj.get(u).getFirst()) {
-//					adj.get(u).addFirst(v);
-//				} else if (v > adj.get(u).getLast()) {
-//					adj.get(u).addLast(v);
-//				} else {
-//					adj.get(u).placeIterator();
-//					if (v > adj.get(u).getIterator()) {
-//						adj.get(u).advanceIterator();
-//					} else {
-//						adj.get(u).reverseIterator();
-//						adj.get(u).addIterator(v);
-//					}
-//				}
-//			}
-//			if (adj.get(v).isEmpty()) {
-//				adj.get(v).addLast(u);
-//			} else {
-//				if (u < adj.get(v).getFirst()) {
-//					adj.get(v).addFirst(u);
-//				} else if (u > adj.get(v).getLast()) {
-//					adj.get(v).addLast(u);
-//				} else {
-//					adj.get(v).placeIterator();
-//					if (u > adj.get(v).getIterator()) {
-//						adj.get(v).advanceIterator();
-//					} else {
-//						adj.get(v).reverseIterator();
-//						adj.get(v).addIterator(u);
-//					}
-//				}
-//			}
-//			edges++;
-//		}
+
 	}
 
-	
+	/**
+	 * Removes a directed edge
+	 * 
+	 * @param u vertex u to remove the edge from
+	 * @param v vertex v the edge to be removed to
+	 * @throws IndexOutOfBoundsException
+	 */
 	public void removeDirectedEdge(Integer u, Integer v) throws IndexOutOfBoundsException {
 		if (u < 0 || v > vertices) {
 			throw new IndexOutOfBoundsException("removeUndirectedEdge(): Index out of bounds!");
 		} else {
-			if(adj.get(u).getLength() == 1) {
+			if (adj.get(u).getLength() == 1) {
 				adj.get(u).removeFirst();
 			} else {
 				adj.get(u).placeIterator();
-				while(!adj.get(u).offEnd()) {
-					if(adj.get(u).getIterator() == v) {
+				while (!adj.get(u).offEnd()) {
+					if (adj.get(u).getIterator() == v) {
 						adj.get(u).removeIterator();
 						return;
 					}
@@ -218,7 +210,7 @@ public class Graph {
 			edges--;
 		}
 	}
-	
+
 	/*** Additional Operations ***/
 
 	/**
@@ -240,20 +232,6 @@ public class Graph {
 		return result;
 	}
 
-	public List<Integer> getRecommendations() {
-		List<Integer> recommendations = new List<>();
-		int max = Collections.max(distance);
-		
-		for(int i = 2; i <= max; i++) {
-			for(int j = 0; j < distance.size(); j++) {
-				if(distance.get(j) == i) {
-					recommendations.addFirst(j);
-				}
-			}
-		}
-		return recommendations;
-	}
-	
 	/**
 	 * Prints the current values in the parallel ArrayLists after executing BFS.
 	 * First prints the heading: v <tab> c <tab> p <tab> d Then, prints out this
@@ -262,8 +240,8 @@ public class Graph {
 	 */
 	public void printBFS() {
 		System.out.println("v\tadj\td\tp");
-		
-		for(int i = 0; i < adj.size(); i++) {
+
+		for (int i = 0; i < adj.size(); i++) {
 			System.out.println(i + "\t" + adj.get(i) + "\t" + distance.get(i) + "\t" + parent.get(i));
 		}
 	}
@@ -287,21 +265,21 @@ public class Graph {
 		} else {
 			Queue<Integer> Q = new Queue<>();
 			int x;
-			for(int i = 0; i < adj.size(); i++) {
+			for (int i = 0; i < adj.size(); i++) {
 				color.set(i, 'w');
 				distance.set(i, -1);
-				parent.set(i, -1);	
+				parent.set(i, -1);
 			}
 			color.set(source, 'g');
 			distance.set(source, 0);
 			Q.enqueue(source);
-			while(!Q.isEmpty()) {
+			while (!Q.isEmpty()) {
 				x = Q.getFront();
 				Q.dequeue();
 				adj.get(x).placeIterator();
-				while(!adj.get(x).offEnd()) {
+				while (!adj.get(x).offEnd()) {
 					int y = adj.get(x).getIterator();
-					if(color.get(y) == 'w') {
+					if (color.get(y) == 'w') {
 						color.set(y, 'g');
 						distance.set(y, distance.get(x) + 1);
 						parent.set(y, x);

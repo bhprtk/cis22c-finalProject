@@ -1,8 +1,13 @@
 
 /**
  * Defines a doubly-linked list class
- * @author Naqib Khan
  * @author Pratik Bhandari
+ * @author Naqib Khan
+ * @author Young Jin Kim
+ * @author Jafer Zaidi
+ * @author Hanxiao Wang
+ * @author Ogbe Airiodion
+ * CIS 22C, Final Project
  */
 
 import java.util.NoSuchElementException;

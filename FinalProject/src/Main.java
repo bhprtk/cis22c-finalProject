@@ -1,3 +1,14 @@
+
+/**
+ * Main.java
+ * @author Pratik Bhandari
+ * @author Naqib Khan
+ * @author Young Jin Kim
+ * @author Jafer Zaidi
+ * @author Hanxiao Wang
+ * @author Ogbe Airiodion
+ * CIS 22C, Final Project
+ */
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -402,7 +413,7 @@ public class Main {
 				ArrayList<User> friends = currentUser.getFriends();
 				writer.println(friends.size());
 				for (int j = 0; j < friends.size(); j++) {
-					writer.println(friends.get(j).getFullName());
+					writer.println(friends.get(j).getUserId());
 				}
 
 				List<Interest> tempList = currentUser.getInterestList();

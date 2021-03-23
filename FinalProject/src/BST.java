@@ -327,25 +327,33 @@ public class BST<T> {
 		}
 		return node;
 	}
-	
+
 	/**
+	 * Returns the data in order as an Array List
 	 * 
-	 * @return userList The list of friends in order for the user 
+	 * @return userList The list of friends in order for the user
 	 */
 	public ArrayList<T> dataInOrder() {
 		ArrayList<T> userList = new ArrayList<>();
 		dataInOrder(root, userList);
 		return userList;
 	}
-	
+
+	/**
+	 * Helper method for the return data in order
+	 * 
+	 * @param node     the current node
+	 * @param userList ArrayList of users to populate
+	 */
+
 	private void dataInOrder(Node node, ArrayList<T> userList) {
-		if(node == null) {
+		if (node == null) {
 			return;
 		}
 		dataInOrder(node.left, userList);
 		userList.add(node.data);
 		dataInOrder(node.right, userList);
-		
+
 	}
 
 	/*** ADDITONAL OPERATIONS ***/
