@@ -3,9 +3,13 @@ alan_turing
 alanturing
 Alan Turing
 London
-2
-James Gosling
+6
+Bill Gates
 Bjarne Stroustrup
+Elon Musk
+James Gosling
+Ken Thompson
+Mark Zuckerberg
 3
 Maths
 Hardware
@@ -31,8 +35,8 @@ Bjarne Stroustrup
 Aarhus
 4
 Alan Turing
-James Gosling
 Brian Kernighan
+James Gosling
 Linus Trovalds
 4
 C
@@ -45,7 +49,8 @@ dennis_ritchie
 dennisritchie
 Dennis Ritchie
 Bronxville
-0
+1
+Brendan Eich
 2
 C
 Linux
@@ -68,7 +73,8 @@ brendan_eich
 brendaneich
 Brendan Eich
 Pittsburgh
-2
+3
+Dennis Ritchie
 James Gosling
 Linus Trovalds
 3
@@ -95,9 +101,10 @@ bill_gates
 billgates
 Bill Gates
 Seattle
-3
-Larry Page
+4
+Alan Turing
 Elon Musk
+Larry Page
 Mark Zuckerberg
 4
 AI
@@ -110,9 +117,10 @@ elon_musk
 elonmusk
 Elon Musk
 Pretoria
-3
-Larry Page
+4
+Alan Turing
 Bill Gates
+Larry Page
 Mark Zuckerberg
 3
 AI
@@ -124,10 +132,11 @@ mark_zuckerberg
 markzuckerberg
 Mark Zuckerberg
 New York
-3
-Mark Zuckerberg
+4
+Alan Turing
 Bill Gates
 Elon Musk
+Mark Zuckerberg
 3
 AI
 PHP
@@ -138,7 +147,8 @@ ken_thompson
 kenthompson
 Ken Thompson
 New Orleans
-1
+2
+Alan Turing
 Linus Trovalds
 2
 Linux
@@ -150,9 +160,9 @@ linustrovalds
 Linus Trovalds
 Helsinki
 4
-Brian Kernighan
 Bjarne Stroustrup
 Brendan Eich
+Brian Kernighan
 Ken Thompson
 4
 Linux
@@ -166,8 +176,8 @@ adalovelace
 Ada Lovelace
 London
 2
-Grace Hopper
 Edith Clarke
+Grace Hopper
 2
 Maths
 Assembly
@@ -189,8 +199,9 @@ edith_clarke
 edithclarke
 Edith Clarke
 Howard
-1
+2
 Ada Lovelace
+Margaret Hamilton
 2
 Maths
 Hardware
@@ -200,7 +211,9 @@ margaret_hamilton
 margarethamilton
 Margaret Hamilton
 Paoli
-0
+2
+Edith Clarke
+Elon Musk
 2
 Maths
 Hardware
@@ -210,7 +223,8 @@ elon_musk_2
 elonmusk2
 Elon Musk
 Los Angeles
-0
+1
+Margaret Hamilton
 2
 Tesla
 AI

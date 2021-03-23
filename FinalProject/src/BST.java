@@ -328,6 +328,10 @@ public class BST<T> {
 		return node;
 	}
 	
+	/**
+	 * 
+	 * @return userList The list of friends in order for the user 
+	 */
 	public ArrayList<T> dataInOrder() {
 		ArrayList<T> userList = new ArrayList<>();
 		dataInOrder(root, userList);

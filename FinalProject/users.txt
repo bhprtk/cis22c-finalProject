@@ -4,12 +4,12 @@ alanturing
 Alan Turing
 London
 6
-Bill Gates
-Bjarne Stroustrup
-Elon Musk
-James Gosling
-Ken Thompson
-Mark Zuckerberg
+7
+2
+8
+1
+10
+9
 3
 Maths
 Hardware
@@ -21,9 +21,9 @@ jamesgosling
 James Gosling
 Calgary
 3
-Alan Turing
-Bjarne Stroustrup
-Brendan Eich
+0
+2
+5
 2
 Java
 C++
@@ -34,10 +34,10 @@ bjarnestroustrup
 Bjarne Stroustrup
 Aarhus
 4
-Alan Turing
-Brian Kernighan
-James Gosling
-Linus Trovalds
+0
+4
+1
+11
 4
 C
 C++
@@ -49,7 +49,8 @@ dennis_ritchie
 dennisritchie
 Dennis Ritchie
 Bronxville
-0
+1
+5
 2
 C
 Linux
@@ -60,8 +61,8 @@ briankernighan
 Brian Kernighan
 Toronto
 2
-Bjarne Stroustrup
-Linus Trovalds
+2
+11
 3
 C
 C++
@@ -72,9 +73,10 @@ brendan_eich
 brendaneich
 Brendan Eich
 Pittsburgh
-2
-James Gosling
-Linus Trovalds
+3
+3
+1
+11
 3
 JavaScript
 Java
@@ -86,9 +88,9 @@ larrypage
 Larry Page
 Lansing
 3
-Bill Gates
-Elon Musk
-Mark Zuckerberg
+7
+8
+9
 3
 C
 C++
@@ -99,11 +101,10 @@ bill_gates
 billgates
 Bill Gates
 Seattle
-4
-Alan Turing
-Elon Musk
-Larry Page
-Mark Zuckerberg
+3
+0
+6
+9
 4
 AI
 Assembly
@@ -115,11 +116,10 @@ elon_musk
 elonmusk
 Elon Musk
 Pretoria
-4
-Alan Turing
-Bill Gates
-Larry Page
-Mark Zuckerberg
+3
+0
+6
+9
 3
 AI
 Python
@@ -131,10 +131,10 @@ markzuckerberg
 Mark Zuckerberg
 New York
 4
-Alan Turing
-Bill Gates
-Elon Musk
-Mark Zuckerberg
+0
+7
+8
+9
 3
 AI
 PHP
@@ -146,8 +146,8 @@ kenthompson
 Ken Thompson
 New Orleans
 2
-Alan Turing
-Linus Trovalds
+0
+11
 2
 Linux
 Assembly
@@ -158,10 +158,10 @@ linustrovalds
 Linus Trovalds
 Helsinki
 4
-Bjarne Stroustrup
-Brendan Eich
-Brian Kernighan
-Ken Thompson
+2
+5
+4
+10
 4
 Linux
 C
@@ -174,8 +174,8 @@ adalovelace
 Ada Lovelace
 London
 2
-Edith Clarke
-Grace Hopper
+14
+13
 2
 Maths
 Assembly
@@ -186,7 +186,7 @@ gracehopper
 Grace Hopper
 New York
 1
-Ada Lovelace
+12
 3
 Maths
 Hardware
@@ -197,8 +197,9 @@ edith_clarke
 edithclarke
 Edith Clarke
 Howard
-1
-Ada Lovelace
+2
+12
+15
 2
 Maths
 Hardware
@@ -208,7 +209,9 @@ margaret_hamilton
 margarethamilton
 Margaret Hamilton
 Paoli
-0
+2
+14
+16
 2
 Maths
 Hardware
@@ -218,7 +221,8 @@ elon_musk_2
 elonmusk2
 Elon Musk
 Los Angeles
-0
+1
+15
 2
 Tesla
 AI

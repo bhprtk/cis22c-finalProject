@@ -35,7 +35,6 @@ public class User {
     
     public User(String fullName) {
     	this.fullName = fullName;
-//    	this.friends = new BST<>();
     }
     
     public User(String userName, String password, String fullName) {
@@ -109,6 +108,14 @@ public class User {
     	friends.inOrderPrint();
     }
     
+    public boolean hasFriend(User friend) {
+    	if(friends.search(friend, new NameComparator()) != null) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    
     public User getFriend(User friend) {
     	return friends.search(friend, new NameComparator());
     }
@@ -119,6 +126,10 @@ public class User {
     
     public void removeFriend(User friend) {
     	friends.remove(friend, new NameComparator());
+    }
+    
+    public boolean hasFriends() {
+    	return !friends.isEmpty();
     }
     
     public void printProfile() {
@@ -182,4 +193,3 @@ class NameComparator implements Comparator<User> {
 		return account1.getFullName().compareTo(account2.getFullName());
 	}
 } // end class NameComparator
-

@@ -261,7 +261,7 @@ public class Graph {
 	 * purely to help you debug your code
 	 */
 	public void printBFS() {
-		System.out.println("v\tc\td\tp");
+		System.out.println("v\tadj\td\tp");
 		
 		for(int i = 0; i < adj.size(); i++) {
 			System.out.println(i + "\t" + adj.get(i) + "\t" + distance.get(i) + "\t" + parent.get(i));
