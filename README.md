@@ -1,8 +1,3 @@
-Absolutely! Here's a complete `README.md` for your **Friends** social network app built in Java:
-
----
-
-```markdown
 # 👥 Friends — A Java-Based Social Network App
 
 **Friends** is a social networking application built in Java, designed to explore and implement core data structures through real-world functionality. The app supports user authentication, search, friend recommendations, and basic messaging—demonstrating how data structures can power dynamic social interactions.
@@ -45,7 +40,7 @@ Friends/
 │   └── MessageQueue.java
 ├── Main.java
 └── README.md
-
+```
 ---
 
 ## 📈 Example Use Cases
@@ -73,17 +68,14 @@ This project demonstrates how core data structures can be applied to real-world 
 
 ---
 
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
 ## 👤 Author
 
 Built by [Pratik Bhandari](https://bhprtk.com)
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
-```
-
----
-
-Let me know if you want to add usage examples, a demo GIF, or link to GitHub!
